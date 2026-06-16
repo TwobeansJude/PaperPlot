@@ -1,0 +1,40 @@
+# === API 密钥 & 本地配置（绝对不能上传）===
+backend/settings.json
+
+# === 用户会话数据 ===
+backend/sessions.json
+
+# === 测试数据 & 用户上传的数据文件 ===
+*.xlsx
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# === 生成的图片 ===
+backend/plots/*
+!backend/plots/.gitkeep
+
+# === Claude 本地配置 ===
+.claude/settings.local.json
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# === 虚拟环境 ===
+venv/
+.venv/
+env/
+
+# === 系统文件 ===
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# === IDE ===
+.vscode/
+.idea/

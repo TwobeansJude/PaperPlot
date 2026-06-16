@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 智能图表生成</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="header">
+    <h1>AI 智能图表生成</h1>
+    <button class="btn-icon" id="btnSettings" title="API设置">&#9881;</button>
+  </header>
+
+  <div class="settings-panel" id="settingsPanel" style="display:none;">
+    <div class="settings-card">
+      <h3>API 设置</h3>
+      <label>API Key</label>
+      <input type="password" id="apiKey" placeholder="sk-...">
+      <label>API URL</label>
+      <input type="text" id="apiUrl" value="https://api.deepseek.com">
+      <label>模型</label>
+      <select id="model">
+        <option value="deepseek-chat">deepseek-chat</option>
+        <option value="deepseek-reasoner">deepseek-reasoner</option>
+      </select>
+      <div class="settings-actions">
+        <button class="btn" id="btnSaveSettings">保存</button>
+        <button class="btn btn-secondary" id="btnCloseSettings">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="upload-area" id="uploadArea">
+    <div class="upload-zone" id="uploadZone">
+      <div class="upload-icon">&#128196;</div>
+      <p>拖拽或点击上传 Excel / CSV 文件</p>
+      <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden>
+    </div>
+    <div class="file-info" id="fileInfo" style="display:none;">
+      <span class="file-name" id="fileName"></span>
+      <span class="file-meta" id="fileMeta"></span>
+      <button class="btn-icon" id="btnRemoveFile" title="移除文件">&#10005;</button>
+    </div>
+  </div>
+
+  <div class="chat-area" id="chatArea">
+    <div class="messages" id="messages"></div>
+    <div class="input-area">
+      <textarea id="requirementInput" placeholder="描述你想要的图表，例如：用柱状图展示各地区的销售额对比..." rows="2"></textarea>
+      <button class="btn btn-primary" id="btnGenerate">生成</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" style="display:none;">
+  <div class="spinner"></div>
+  <p id="overlayText">AI 正在分析和生成图表...</p>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
